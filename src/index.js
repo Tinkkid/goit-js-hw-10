@@ -70,11 +70,11 @@ function createMarkupCountry(countryArray) {
   <span><strong>${
     name.official
   }</strong></span></div>
-  <div class = "country-info"><strong>Capital:</strong> ${capital.join(
+  <div ><strong>Capital:</strong> ${capital.join(
     ', '
   )}</div>
-  <div class = "country-info"><strong>Population:</strong> ${population}</div>
-  <div class = "country-info"><strong>Languages:</strong> ${Object.values(
+  <div><strong>Population:</strong> ${population}</div>
+  <div><strong>Languages:</strong> ${Object.values(
     languages
   )}</div>
   `;
@@ -83,8 +83,8 @@ function createMarkupCountry(countryArray) {
 function createMarkupCountryList(countries) {
    clearInputSearch();
    return countries.map(country => {
-      return `<div><img src = "${country.flags.svg}" alt = "country flag" width="50">
-  <span><strong>${country.name.common}</strong></span></div>`
+      return `<li class="count_list"><img src = "${country.flags.svg}" alt = "country flag" width="50">
+  <span><strong>${country.name.common}</strong></span></li>`
    }).join("");
 };
 

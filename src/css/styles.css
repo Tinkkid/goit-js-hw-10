@@ -10,24 +10,18 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
-  background-image: url("https://cdn.pixabay.com/photo/2018/03/20/18/23/cartography-3244166_960_720.png");
+  background-image: url("https://cdn.pixabay.com/photo/2012/04/11/15/48/continents-28616_960_720.png");
   background-repeat: no-repeat;
-  background-size: cover;
-   display: flex;
-  justify-content: center;
+  background-size: cover; 
   padding-top: 40px;
 }
-
-body::before {
- content: '';
- width: 100%;
- height: 100%;
- left: 0;
- top: 0;
- position: absolute;
- background-color: rgba(0, 0, 0, 0.106);}
+li {
+  list-style: none;
+}
 
 #search-box {
+  display: flex;
+  margin: 0 auto;
   z-index: 100;
  border: 1px solid #837e7e;
  border-radius: 5px;
@@ -35,4 +29,16 @@ body::before {
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
+}
+.country-list, .country-info {
+  padding-left: 45vw;
+  font-size: 20px;
+}
+
+.count_list {
+ margin-top: 10px;
+}
+
+.country-info div {
+  margin-top: 10px;
 }

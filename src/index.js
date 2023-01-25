@@ -40,7 +40,7 @@ function onSearchCountry(e) {
   fetchCountries(name)
      .then(data => {
         if (data.length > 10) {
-           Notiflix.Notify.info(
+          return Notiflix.Notify.info(
               'Too many matches found. Please enter a more specific name.'
            )
         }
@@ -64,10 +64,10 @@ function createMarkupCountry(countryArray) {
    clearInputSearch();
    const { name, capital, population, languages } = countryArray[0];
    console.log({ name, capital, population, languages });
-  return `<div class = "country-info-container"><img src = "${
+  return `<div><img src = "${
     countryArray[0].flags.svg
   }" alt = "country flag" width = "50">
-  <span class = "country-info__name"><strong>${
+  <span><strong>${
     name.official
   }</strong></span></div>
   <div class = "country-info"><strong>Capital:</strong> ${capital.join(
@@ -83,8 +83,8 @@ function createMarkupCountry(countryArray) {
 function createMarkupCountryList(countries) {
    clearInputSearch();
    return countries.map(country => {
-      return `<div class = "country-info-container"><img src = "${country.flags.svg}" alt = "country flag" width = "50">
-  <span class = "country-info__name"><strong>${country.name.official}</strong></span></div>`
+      return `<div><img src = "${country.flags.svg}" alt = "country flag" width="50">
+  <span><strong>${country.name.common}</strong></span></div>`
    }).join("");
 };
 

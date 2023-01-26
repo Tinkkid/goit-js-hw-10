@@ -17,9 +17,11 @@ body {
 }
 li {
   list-style: none;
+  margin-top: 10px;
 }
 
 #search-box {
+  position: relative;
   display: flex;
   margin: 0 auto;
   z-index: 100;
@@ -31,14 +33,17 @@ li {
   margin-bottom: 16px;
 }
 .country-list, .country-info {
-  padding-left: 45vw;
+  position: absolute;
+  left: 42%;
   font-size: 20px;
-}
-
-.count_list {
- margin-top: 10px;
 }
 
 .country-info div {
   margin-top: 10px;
+}
+
+.country-list_wrap, .country-info_wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

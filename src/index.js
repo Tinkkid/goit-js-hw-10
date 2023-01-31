@@ -16,9 +16,8 @@ refs.inputCountry.addEventListener(
 
 function onSearchCountry(e) {
    let name = e.target.value.trim();
-   if (!name) {
-      clearInputSearch();
-      return
+   if (!name) { 
+      return clearInputSearch();
    }
 
   API.fetchCountries(name)
@@ -30,27 +29,36 @@ function onSearchCountry(e) {
         }
         else if (data.length === 1) {
            refs.countryInfo.innerHTML = createMarkupCountry(data);
+           if (!name) {
+             refs.inputCountry.value = '';
+           }
+             
         }
         else if (data.length >= 2 && data.length < 10) {
            refs.countryList.innerHTML = createMarkupCountryList(data);
+           if (!name) {
+              refs.inputCountry.value = '';
+           }
         }
      }
      )
      .catch((error) => {
         if (error.message === "404")
+           refs.inputCountry.value = '';
           Notiflix.Notify.failure('Oops, there is no country with that name');
     }  
     );
 };
 
 function createMarkupCountry(countryArray) {
- clearInputSearch();
-  const { name, capital, population, languages } = countryArray[0];
-  console.log({ name, capital, population, languages });
+   clearInputSearch();
+ 
+   const { name, capital, population, languages } = countryArray[0];
+//   console.log({ name, capital, population, languages });
   return `<div class="country-info_wrap" ><img src = "${
     countryArray[0].flags.png
   }" alt = "country flag" width = "50">
-  <span><strong>${name.official}</strong></span></div>
+  <span><strong>${name.common}</strong></span></div>
   <div ><strong>Capital:</strong> ${capital.join(', ')}</div>
   <div><strong>Population:</strong> ${population}</div>
   <div><strong>Languages:</strong> ${Object.values(languages)}</div>
